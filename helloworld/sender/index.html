@@ -23,7 +23,7 @@
 			$killSwitch = $('.kill');
 
     var appId = "c48ae0aa-486a-4266-b4ee-323fd739c0b8";
-    var namespace = "uk.co.jinglemansweep";
+    var namespace = "helloworld";
 
 		window.addEventListener('message', function(event) {
 			if (event.source === window && event.data &&
@@ -35,6 +35,7 @@
 
 		initializeApi = function() {
 			if (!cast_api) {
+        alert(appId);
 				cast_api = new cast.Api();
 				cast_api.addReceiverListener(appId, onReceiverList);
 			}
