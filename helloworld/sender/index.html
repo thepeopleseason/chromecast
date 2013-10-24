@@ -35,7 +35,6 @@
 
 		initializeApi = function() {
 			if (!cast_api) {
-        alert(appId);
 				cast_api = new cast.Api();
 				cast_api.addReceiverListener(appId, onReceiverList);
 			}
