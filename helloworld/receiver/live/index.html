@@ -11,13 +11,15 @@
 <script src="https://www.gstatic.com/cast/js/receiver/1.0/cast_receiver.js"></script>
 <script>
 	$(function() {
-		var receiver = new cast.receiver.Receiver('*** YOUR APP ID ****', ['*** YOUR NAMESPACE ***']),
-			channelHandler = new cast.receiver.ChannelHandler('*** YOUR NAMESPACE ***'),
+    var appId = "c48ae0aa-486a-4266-b4ee-323fd739c0b8";
+    var namespace = "uk.co.jinglemansweep";
+		var receiver = new cast.receiver.Receiver(appId, [namespace]),
+			channelHandler = new cast.receiver.ChannelHandler(namespace),
 			$messages = $('.messages'),
 			$body = $('body');
 		
 		channelHandler.addChannelFactory(
-			receiver.createChannelFactory('*** YOUR NAMESPACE ***'));
+			receiver.createChannelFactory(namespace));
 
 		receiver.start();
 
