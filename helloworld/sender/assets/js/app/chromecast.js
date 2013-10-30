@@ -1,6 +1,6 @@
 define(
-    [],
-    function () {
+    ["jquery"],
+    function ($) {
         
         "use strict";
 
@@ -15,13 +15,17 @@ define(
                 appNamespace: "helloworld"
             },
 
+            els: {
+                killSwitch: $("#killSwitch")
+            },
+
             init: function () {
                 chromecast.setupEvents();
-
             },
 
             setupEvents: function () {
-                var api = chromecast.cache.castApi;
+                var api = chromecast.cache.castApi,
+                    $killSwitch = chromecast.els.killSwitch;
     		    window.addEventListener("message", function (event) {
 			        if (event.source === window 
                         && event.data 
@@ -74,7 +78,8 @@ define(
 	        	},
 
 		        doLaunch: function (receiver) {
-                    var request;
+                    var request,
+                        $killSwitch = chromecast.els.killSwitch;
 			        if (!chromecast.cache.activity) {
 				        request = new cast.LaunchRequest(
                             chromecast.config.appId, 
