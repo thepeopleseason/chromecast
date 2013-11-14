@@ -41,9 +41,21 @@
     </div>
     <div class="container">
       <h1>Chromecast Sender</h1>
+      <ul class="receiver-list">
+        <li>None found</li>
+      </ul>
+      <button class="kill-switch">Kill connection</button>
+      </div>
     </div> <!-- /container -->
     <script src="assets/js/vendor/require/require.js"></script>
     <script src="assets/js/main.js"></script>
-    <script src="assets/js/boot.js"></script>
+    <script>
+      require(
+        ["app/sender"],
+        function (sender) {
+          sender.init();
+        }
+      );
+    </script>
   </body>
 </html>
